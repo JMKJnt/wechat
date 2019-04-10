@@ -1,0 +1,102 @@
+<view class='b1' wx:if="{{isLoad}}"></view>
+<view class='container'>
+  <!-- 提示警告! -->
+  <view class='wran-tips' style='{{displayWarn}}'>
+    <text>{{warnInfo}}</text>
+  </view>
+  <view class='head'>
+    <image class='head-img-i' mode='scaleToFill' src='{{activeBanner}}' ></image>
+  </view>
+  <view class="{{isLoad?'content indexFixed':'content'}}">
+    <view class='content-n'>{{activeName}}</view>
+    <view class='content-time'>
+      <view class='c-n-title-int'>报名时间：</view>
+      <view class='content-n-t'>{{signStartTime}} 至 {{signEndTime}}</view>
+    </view>
+    <view class='content-time'>
+      <view class='c-n-title-int'>活动时间：</view>
+      <view class='content-n-t'>{{activeStartTime}} 至 {{activeEndTime}}</view>
+    </view>
+    <view class='content-c'>
+      <view class='c-n-title-c'>课程简介：</view>
+      <block wx:for-items="{{detailList}}">
+        <view class='content-c-d'>{{item.content}}</view>
+      </block>
+    </view>
+    <view class='content-c'>
+      <view class='c-n-title-c'>师资介绍：</view>
+      <scroll-view class='teacher-l'>
+        <block wx:for-items="{{teacherList}}">
+          <view class='teacher-de' data-id="{{item.activeTeaName}}">
+            <view class='teacher-i'>
+              <image class='t-img-i' src='{{item.activeTeaImg}}'> </image>
+            </view>
+            <view class='teacher-info'>
+              <view class='t-name'>{{item.activeTeaName}}</view>
+              <view class='t-detail'>{{item.activeTeaDesc}}</view>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='foot' wx:if="{{!isLoad}}">
+    <view wx:if="{{!isRegisterActive && registerStatus=='2'}}" class='foot-v' catchtap='register' disabled="{{isClick}}">我要报名</view>
+    <view wx:if="{{isRegisterActive && activePstatus=='1'}}" class='foot-v' data-zbcode='{{Zb_code}}' catchtap='gotoZb'>已报名,进入课程</view>
+    <view wx:if="{{isRegisterActive && activePstatus=='2'}}" class='foot-v foot-v-j'>已报名,即将开始</view>
+    <view wx:if="{{!isRegisterActive && registerStatus=='3'}}" class='foot-v foot-v-c'>报名已截止</view>
+    <view wx:if="{{!isRegisterActive && registerStatus=='1'}}" class='foot-v foot-v-n'>报名未开始</view>
+  </view>
+
+  <view class='v-pop' wx:if="{{isLoad}}">
+    <form bindsubmit="formSubmit" report-submit="true">
+      <view class='pop-img-head'>
+        <image src='{{activeBanner}}'></image>
+      </view>
+      <view class='pop-info'>
+        <view class='pop-content'>
+          <view class='pop-c-item-n'>您的身份</view>
+          <view class='pop-role-t'>
+            <block wx:for-items="{{roleTypeList}}">
+              <span class="{{roleSelectType==item.data_code?'pop-active-color':''}}" catchtap='roleSelect' data-code='{{item.data_code}}'>{{item.data_name}}</span>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class='pop-info' wx:if="{{userRole=='2' || userRole=='3'}}">
+        <view class='pop-content-c'>
+          <view class='pop-c-item-n'>选择班级</view>
+          <view class='pop-class-t'>
+            <block wx:for-items="{{classList}}">
+              <span class="{{classId==item.classId?'pop-active-color':''}}" catchtap='classSelect' data-classId='{{item.classId}}'>{{item.className}}</span>
+            </block>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="page-section page-section-l">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view>手机号</view>
+            <input class="weui-input input-s" maxlength="11" value='{{userPhone}}' name="userPhone" bindblur="userPhoneInput" placeholder="输入手机号" />
+          </view>
+        </view>
+      </view>
+      <view class="page-section page-section-l">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view>姓名</view>
+            <input class="weui-input input-s" maxlength="50" value='{{userName}}' name="userName" bindblur="userNameInput" placeholder="输入姓名" />
+          </view>
+        </view>
+      </view> -->
+      <view class="page-section page-section-r">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <button class='re-btn' form-type='submit'>确认报名</button>
+          </view>
+        </view>
+      </view>
+      <view class='colse' catchtap='colsePop'>×</view>
+    </form>
+  </view>
+</view>

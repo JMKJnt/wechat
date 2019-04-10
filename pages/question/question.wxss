@@ -1,0 +1,40 @@
+/* pages/question/question.wxss */
+
+.container>view{
+  width: 90%;
+  height: 250rpx;
+  position: relative;
+  margin: 10epx auto;
+}
+.q-info{
+font-size: 28rpx;
+line-height: 28rpx;
+/* border-left: 2px solid #4a7eff; */
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15rpx;
+  /* align-items: center; */
+}
+radio {
+  transform: scale(0.6);
+}
+.h-raido {
+  font-size: 27rpx;
+  left: 17rpx;
+  position: relative;
+}
+.q-foot{
+  background-color: #5082ff;
+  width: 100%;
+  position: relative;
+  margin: 30rpx auto;
+  height: 70rpx;
+  border-radius: 18px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 27rpx;
+  line-height: 70rpx;
+  margin-top: 60px;
+}

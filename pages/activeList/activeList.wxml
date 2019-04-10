@@ -1,0 +1,73 @@
+<view class='b1' wx:if="{{isLoad || isLoadTime || isLoadDefault}}" catchtap='bClickHide'></view>
+<view class="container">
+  <view class="head">
+    <view class='head-info'>
+      <icon class='icon-s' type='search' size='13'></icon>
+      <input class='head-title' type='text' placeholder='输入活动名称查询' bindblur="activeSearch" maxlength='20' value='{{activeName}}'></input>
+    </view>
+  </view>
+  <view class='nav'>
+    <view class="{{roleName=='全部'?'nav-s':'nav-s nav-active'}}" catchtap='roleSelect' data-type="{{roleType}}">{{roleName}}
+      <image class='nav-s-img' src='../../img/down.png'></image>
+    </view>
+    <view class="{{timeName=='状态'?'nav-s':'nav-s nav-active'}}" catchtap='timeSelect' data-type="{{timeType}}">{{timeName}}
+      <image class='nav-s-img' src='../../img/down.png'></image>
+    </view>
+    <view class="{{defaultName=='默认'?'nav-s':'nav-s nav-active'}}" catchtap='defaultSelect' data-type="{{defaultType}}">{{defaultName}}
+      <image class='nav-s-img' src='../../img/down.png'></image>
+    </view>
+    <!-- <view class='nav-s' catchtap='rqClick'>
+      <view class="{{activeRQ?' nav-s-f nav-s-f-active':'nav-s-f'}} ">人气</view>
+    </view> -->
+  </view>
+    <scroll-view class='nav-c' wx:if="{{isLoadDefault}}">
+    <view catchtap='defaultClick' data-id="0" data-name="默认" class="{{defaultType==0?'nav-c-l nav-active':'nav-c-l'}}">默认
+      <icon wx:if="{{defaultType==0}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+    <view catchtap='defaultClick' data-id="1" data-name="人气" class="{{defaultType==1?'nav-c-l nav-active':'nav-c-l'}}">人气
+      <icon wx:if="{{defaultType==1}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+    <view catchtap='defaultClick' data-id="2" data-name="时间" class="{{defaultType==2?'nav-c-l nav-active':'nav-c-l'}}">时间
+      <icon wx:if="{{defaultType==2}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+  </scroll-view>
+  <scroll-view class='nav-c' wx:if="{{isLoadTime}}">
+    <view catchtap='timeClick' data-id="0" data-name="状态" class="{{timeType==0?'nav-c-l nav-active':'nav-c-l'}}">全部
+      <icon wx:if="{{timeType==0}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+    <view catchtap='timeClick' data-id="1" data-name="未开始" class="{{timeType==1?'nav-c-l nav-active':'nav-c-l'}}">未开始
+      <icon wx:if="{{timeType==1}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+    <view catchtap='timeClick' data-id="2" data-name="报名中" class="{{timeType==2?'nav-c-l nav-active':'nav-c-l'}}">报名中
+      <icon wx:if="{{timeType==2}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+    <view catchtap='timeClick' data-id="3" data-name="已截止" class="{{timeType==3?'nav-c-l nav-active':'nav-c-l'}}">已截止
+      <icon wx:if="{{timeType==3}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+    </view>
+  </scroll-view>
+  <scroll-view class='nav-c' wx:if="{{isLoad}}">
+    <block wx:for-items="{{roleList}}">
+      <view catchtap='roleClick' data-id="{{item.data_code}}" data-name="{{item.data_name}}" class="{{roleType==item.data_code?'nav-c-l nav-active':'nav-c-l'}}">{{item.data_name}}
+        <icon wx:if="{{roleType==item.data_code}}" class='nav-c-i' type="success_no_circle" size="18"></icon>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='content'>
+    <scroll-view class='content-l'>
+      <block wx:for-items="{{dataList}}">
+        <view class='con-i-items'>
+          <view class='conetent-item' data-id="{{item.activeId}}" data-role="{{item.roleType}}" data-img="{{item.activeBanner}}" catchtap='detailClick'>
+            <view class='content-img'>
+              <image class='c-img-i' src="{{item.activeBanner}}"></image>
+            </view>
+            <view class='content-info'>
+              <view class='content-n'>{{item.activeName}} </view>
+              <view class='content-n-t'>{{item.activeTheme}}</view>
+              <view class='content-n-d'>详情>></view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/zbcode/zbcode.wxml-->
+<view class='head'>
+  <view class='head-tips'>直播地址</view>
+</view>
+<view class='contents'>
+  <text>{{contents}}</text>
+</view>
+<view class='copy_btn' bindtap='copyText' data-text="{{contents}}">
+复制地址
+</view>
+<view class='tips'>请复制地址到微信中打开
+</view>

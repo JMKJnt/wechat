@@ -1,0 +1,57 @@
+<!--pages/class/class.wxml-->
+<view class='container'>
+  <view class='head' wx:if="{{!isTeacher}}" style='dusplay:none'>
+    <view class='head-tips'>班级信息</view>
+    <view class='head-info'>
+      <view class='head-i-p-n'>姓名</view>
+      <view class='head-i-p'>{{userName}}
+      </view>
+    </view>
+    <view class='head-info'>
+      <view class='head-i-p-n'>身份</view>
+      <view class='head-i-p'>
+        {{userRoleName}}
+      </view>
+    </view>
+    <view class='head-info'>
+      <view class='head-i-p-n'>班级名称</view>
+      <view class='head-i-p'>
+        {{className}}
+      </view>
+    </view>
+    <view class='head-info'>
+      <view class='head-i-p-n'>学校名称</view>
+      <view class='head-i-p'>
+        {{schoolName}}
+      </view>
+    </view>
+    <view class='head-info'>
+      <view class='head-i-p-n'>班主任</view>
+      <view class='head-i-p'>
+        {{classTeacherName}}
+      </view>
+    </view>
+    <view class='head-info'>
+      <view class='head-i-p-n'>班主任电话</view>
+      <view class='head-i-p'>
+        {{classTeacherPhone}}
+      </view>
+    </view>
+  </view>
+  <view class='class-head' wx:if="{{isTeacher}}">
+    <view class='class-l-head'>
+      <view>学校</view>
+      <view>班级</view>
+      <view>详情</view>
+    </view>
+  </view>
+  <scroll-view class='head-s-c' wx:if="{{isTeacher}}">
+    <block wx:for-items="{{classList}}">
+      <view class='class-l-c'>
+        <view>{{item.schoolName}}</view>
+        <view>{{item.className}}</view>
+        <view data-id='{{item.classId}}' catchtap='studentClick' class='color-c'>学生详情 ></view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

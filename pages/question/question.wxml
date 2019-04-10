@@ -1,0 +1,29 @@
+<!--pages/question/question.wxml-->
+<view class='container'>
+  <view>
+    <view class='q-info'>1. 请问您之前是否参与过百千共读活动？
+    </view>
+    <view class='q-radio'>
+      <radio-group class="radio-group" bindchange="radioChange1">
+        <label class="radio h-raido" wx:for="{{itemList1}}">
+          <radio color='#5082ff' value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view>
+    <view class='q-info'>2. 请问到目前为止您参与百千共读活动的总次数？不包括寒暑假线上活动及线下论坛等。
+    </view>
+    <view class='q-radio'>
+      <radio-group class="radio-group" bindchange="radioChange2">
+        <label class="radio h-raido" wx:for="{{itemList2}}">
+          <radio color='#5082ff' value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view >
+   <view class='q-foot' catchtap='submit'>提交</view>
+  </view>
+</view>

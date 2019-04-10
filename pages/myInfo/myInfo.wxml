@@ -1,0 +1,66 @@
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <!-- 提示警告! -->
+    <view class='wran-tips' style='{{displayWarn}}'>
+      <text>{{warnInfo}}</text>
+    </view>
+    <view class='head'>
+      <view class='head-tips'>我的信息</view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>手机号</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="11" name='userPhone' value='{{userPhone}}' placeholder="输入手机号" bindblur='userPhoneInput' />
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>姓名</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="50" name='userName' value='{{userName}}' placeholder="姓名" bindblur="userNameInput" />
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>昵称</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="50" name='nickName' value='{{nickName}}' placeholder="昵称" bindblur="userNickNameInput" />
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>身份</view>
+        <view class='head-i-p'>
+          {{userRoleName}}
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>邮箱</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="50" name='userEmail' value='{{userEmail}}' placeholder="请输入邮箱" bindblur="userEmailInput" />
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>家庭住址</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="50" name='userAddress' value='{{userAddress}}' placeholder="请输入家庭住址" bindblur="userAddressInput" />
+        </view>
+      </view>
+      <view class='separation' catchtap='editPass'>修改密码 {{editTip}}</view>
+      <view wx:if="{{isEditPass}}">
+        <view class='head-info'>
+          <view class='head-i-p-n'>密码</view>
+          <view class='head-i-p'>
+            <input type='password' name='passWord' class="weui-input" maxlength="6" value='{{passWord}}' placeholder="输入6位密码" />
+          </view>
+        </view>
+        <view class='head-info'>
+          <view class='head-i-p-n'>确认密码</view>
+          <view class='head-i-p'>
+            <input type='password' name='againPass' class="weui-input" maxlength="6" value='{{againPass}}' placeholder="再次输入6位密码" />
+          </view>
+        </view>
+      </view>
+      <view class='head-foot'>
+        <button class='h-f-l' form-type='submit'>提交</button>
+        <!-- <view class='h-f-l' catchtap='register'>注册</view> -->
+      </view>
+    </view>
+  </form>
+</view>

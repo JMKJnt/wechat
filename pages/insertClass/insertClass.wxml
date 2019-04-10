@@ -1,0 +1,65 @@
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <!-- 提示警告! -->
+    <view class='wran-tips' style='{{displayWarn}}'>
+      <text>{{warnInfo}}</text>
+    </view>
+    <view class='head'>
+      <view class='head-tips'>新增班级</view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>班级名称</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="100" name='className' value='{{className}}' placeholder="输入班级名称" />
+        </view>
+      </view>
+
+      <view class='head-info'>
+        <view class='head-i-p-n'>学校全称</view>
+        <view class='head-i-p'>
+          <picker bindchange="bindSchoolChange" value="{{schoolList[schoolIndex].schoolId}}" range="{{schoolArray}}">
+            <view class="picker">
+              {{schoolList[schoolIndex].schoolName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>学校地址</view>
+        <view class='head-i-p'>
+          <input class="weui-input" disabled='disabled' maxlength="100" value='{{schoolAddress}}' />
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>班级年段</view>
+        <view class='head-i-p'>
+          <picker bindchange="bindDivisionChange" value="{{divisionList[divisionIndex].data_code}}" range="{{divisionArray}}">
+            <view class="picker">
+              {{divisionList[divisionIndex].data_name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>班级级别</view>
+        <view class='head-i-p'>
+          <picker bindchange="bindLevelChange" value="{{levelList[levelIndex].data_code}}" range="{{levelArray}}">
+            <view class="picker">
+              {{levelList[levelIndex].data_name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class='head-info'>
+        <view class='head-i-p-n'>班级描述</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="100" name='classDesc' value='{{classDesc}}' placeholder="班级描述" bindblur="classDescInput" />
+        </view>
+      </view>
+      <view class='head-foot'>
+        <button class='h-f-l' form-type='submit'>新增</button>
+        <!-- <view class='h-f-l' catchtap='register'>注册</view> -->
+      </view>
+    </view>
+  </form>
+</view>

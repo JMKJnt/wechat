@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='head'>
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname" data-phone="{{userPhone}}">{{userInfo.nickName}}  </text>
+         <text class="userinfo-nickname" data-phone="{{userPhone}}">{{uerPhoneZ}}</text>
+        <!-- <text class='userinfo-phone' data-role="{{userRole}}" >角色：{{userRoleName}}</text> -->
+      </block>
+    </view>
+  </view>
+  <view class='content'>
+   <view class='content-info ' data-id="{{userId}}" catchtap='myInfo'>
+      <image class='content-i-img ' src='../../img/p.png'></image>
+      <view class='content-i-v'>个人资料</view>
+      <image class='content-i-link' src='../../img/update-s.png'></image>
+    </view>
+    <view class='content-info ' catchtap='myActive'>
+      <image class='content-i-img ' src='../../img/active.png'></image>
+      <view class='content-i-v'>我的活动</view>
+       <image class='content-i-link' src='../../img/update-s.png'></image>
+    </view>
+     <view class='content-info' wx:if='{{isClassShow}}' catchtap='classClick'>
+      <image class='content-i-img' src='../../img/class.png'></image>
+      <view class='content-i-v'>我的班级</view>
+      <image class='content-i-link' src='../../img/update-s.png'></image>
+    </view>
+       <view class='content-info' wx:if='{{isInsertClassShow}}' catchtap='insertClass'>
+      <image class='content-i-img' src='../../img/class.png'></image>
+      <view class='content-i-v'>新增班级</view>
+      <image class='content-i-link' src='../../img/update-s.png'></image>
+    </view>
+    <view class='content-info'>
+      <image class='content-i-img' src='../../img/sep.png'></image>
+      <view class='content-i-v'>联系客服</view>
+       <image class='content-i-link' src='../../img/update-s.png'></image>
+    </view>
+    <view class='content-info content-gl' catchtap='exitLogin'>
+      <!-- <image></image> -->
+      <view>退出账号</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/activeList/activeList",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/activeDetail/activeDetail",
+    "pages/myActiveList/myActiveList",
+    "pages/index/index",
+    "pages/myInfo/myInfo",
+    "pages/class/class",
+    "pages/student/student",
+    "pages/insertClass/insertClass",
+    "pages/out/out",
+    "pages/zbcode/zbcode",
+    "pages/question/question",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "百千学堂",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#4173fb",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/myActiveList/myActiveList",
+        "iconPath": "img/myAn.png",
+        "selectedIconPath": "img/myAc.png",
+        "text": "我的活动"
+      },
+      {
+        "pagePath": "pages/activeList/activeList",
+        "iconPath": "img/acn.png",
+        "selectedIconPath": "img/ac.png",
+        "text": "活动列表"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/myn.png",
+        "selectedIconPath": "img/myq.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

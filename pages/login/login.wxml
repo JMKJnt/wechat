@@ -1,0 +1,41 @@
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <!-- 提示警告! -->
+    <view class='wran-tips' style='{{displayWarn}}'>
+      <text>{{warnInfo}}</text>
+    </view>
+    <view class='head'>
+      <view class='head-tips'>登录</view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>身份</view>
+        <view class='head-i-p'>
+          <radio-group class="radio-group">
+            <label class="radio h-raido" data-value="{{item.data_code}}" wx:for-items="{{roleList}}" wx:key="item" catchtap='checkedClick'>
+              <radio checked='{{item.checkStatus}}' color='#5082ff'/>{{item.data_name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>手机号</view>
+        <view class='head-i-p'>
+          <input class="weui-input" maxlength="11" name="userPhone" value='{{userPhone}}' placeholder="输入手机号" bindblur="userPhoneInput" />
+        </view>
+      </view>
+      <view class='head-info'>
+        <view class='head-i-p-n'>密码</view>
+        <view class='head-i-p'>
+          <input type='password' class="weui-input" maxlength="6" name="passWord" value='{{passWord}}' placeholder="输入密码" bindinput="passWordInput" />
+        </view>
+      </view>
+      <view class='head-r'>
+        <view catchtap='register'>
+          <label class='re-label'>我要注册</label>
+        </view>
+      </view>
+      <view class='head-foot'>
+        <button class='h-f-l' form-type='submit'>登录</button>
+      </view>
+    </view>
+  </form>
+</view>

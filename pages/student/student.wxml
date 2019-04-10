@@ -1,0 +1,18 @@
+<!--pages/student/student.wxml-->
+<view class='container'>
+  <view class='class-head' >
+    <view class='class-l-head'>
+      <!-- <view>学校: {{schoolName}}</view> -->
+      <view>{{className}} / 人数{{studentList.length}}人</view>
+    </view>
+  </view>
+  <scroll-view class='head-s-c'>
+    <block wx:for-items="{{studentList}}">
+      <view class='class-l-c'>
+        <view>{{item.studentName}}</view>
+        <view class='class-i-c-p' catchtap='phonecall' data-phone='{{item.studentPhone}}'> <image src='../../img/phone.png'></image>
+        {{item.studentPhone}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

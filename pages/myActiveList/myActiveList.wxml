@@ -1,0 +1,28 @@
+<view class='container'>
+  <view class='head'>
+    <block wx:for-items="{{statusList}}" wx:key='item'>
+      <view class="{{selectType==item.data_code?'head-item head-i-active':'head-item'}}" catchtap='selectClick' data-id="{{item.data_code}}">{{item.data_name}}</view>
+    </block>
+  </view>
+  <scroll-view class='scroll-c' id='activeLists'>
+    <block wx:for-items="{{activeList}}" wx:key='item'>
+      <view class='content' data-code='{{item.registerProgressStatus}}' data-activeId='{{item.activeId}}'  catchtap='detailClcik'>
+        <view class='content-info'>
+          <view class='c-info-i'>
+            <view>
+              <image src='{{item.activeBanner}}'></image>
+            </view>
+          </view>
+          <view class='c-info-l'>
+            <view class='c-info-item-m'>{{item.activeName}}</view>
+            <view>报名时间 {{item.registerTime}}</view>
+            <view>活动时间 {{item.activeStartTime}} 至 {{item.activeEndTime}}</view>
+            <image class='c-info-item-img' src='{{item.yzImg}}'></image>
+            <!-- <view class='{{item.registerProgressStatus=="1"?"c-i-r-c c-i-r-color-d":item.registerProgressStatus=="3"?"c-i-r-c c-i-r-color-n":item.registerProgressStatus=="4"?"c-i-r-c c-i-r-color-g":"c-i-r-c"}}'>{{item.ProgressStatusName}}</view> -->
+            <!-- <view wx:if="{{item.registerProgressStatus==3 && item.isTime}}" data-zbcode="{{item.Zb_code}}"  catchtap='gotoActive' class='c-info-item-ac'>学习</view> -->
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
